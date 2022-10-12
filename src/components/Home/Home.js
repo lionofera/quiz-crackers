@@ -5,11 +5,11 @@ import Fields from '../Fields/Fields';
 const Home = () => {
     const fields = useLoaderData();
     return (
-        <div className=''>
+        <div className='flex flex-col justify-center'>
             <div className='p-5'>
-            <img className='w-auto' src='../../../public/web-design-concept-with-drawings.jpg' alt='web development'></img>
+               s<img className='w-full' src='../../../public/web-design-concept-with-drawings.png' alt='web development'></img>
             </div>
-            <div className='box-border w-3/4 bg-slate-200 grid gap-2 grid-cols-2'>
+            <div className='justify-center w-2/4 bg-orange-100 grid gap-6 grid-cols-2'>
             {
                 fields.data.map(field => <Fields
                 key={field.id}

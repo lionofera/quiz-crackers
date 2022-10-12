@@ -7,6 +7,8 @@ import Chart from './components/Chart/Chart';
 import Fields from './components/Fields/Fields';
 import Quizes from './components/Quizes/Quizes';
 import Quiz from './components/Quiz/Quiz';
+import Chartdata from './components/Chartdata/Chartdata';
+import Blog from './components/Blog/Blog';
 
 function App() {
   const router = createBrowserRouter([
@@ -27,6 +29,11 @@ function App() {
         element:<Chart></Chart>
       },
       {
+        path:'/chartdata',
+        loader:() => fetch('https://openapi.programming-hero.com/api/quiz'),
+        element:<Chartdata></Chartdata>
+      },
+      {
         path: '/fields/:fieldID',
         loader: async({params}) => {
           return fetch(`https://openapi.programming-hero.com/api/quiz/${params.fieldID}`)
@@ -35,7 +42,12 @@ function App() {
       }
       ]
     },
-    {path: '/*', element: 'Page doesnt exists :(                       Please check your input!'}
+    {
+      path: '/blogs',
+      element: <Blog></Blog>
+    },
+    {path: '/*', element: <h3>'Page doesnt exists :(
+      Please check your input!'</h3>}
   ])
   return (
     <div className="App">
